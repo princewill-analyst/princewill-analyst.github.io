@@ -1,0 +1,1860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Princewill Ibe | Data Analyst</title>
+
+    <meta name="description"
+        content="Portfolio of Princewill Ibe, a Data Analyst specializing in data analysis, visualization, Excel, SQL, and business insights.">
+
+    <meta name="author" content="Princewill Ibe">
+
+    <style>
+
+        /* =========================================
+           RESET & GLOBAL STYLES
+        ========================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --bg: #070b12;
+            --bg-soft: #0d131d;
+            --card: rgba(18, 25, 38, 0.75);
+            --card-solid: #111927;
+            --border: rgba(255, 255, 255, 0.08);
+
+            --text: #f3f6fb;
+            --text-soft: #a7b1c2;
+            --muted: #737e91;
+
+            --primary: #66e3b4;
+            --primary-dark: #38b98b;
+            --secondary: #7c8cff;
+
+            --gradient: linear-gradient(
+                135deg,
+                #66e3b4,
+                #7c8cff
+            );
+
+            --shadow:
+                0 20px 60px rgba(0, 0, 0, 0.35);
+
+            --radius: 18px;
+            --max-width: 1180px;
+        }
+
+        html {
+            font-size: 16px;
+        }
+
+        body {
+            font-family:
+                Inter,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                Helvetica,
+                Arial,
+                sans-serif;
+
+            background:
+                radial-gradient(
+                    circle at 15% 10%,
+                    rgba(102, 227, 180, 0.08),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 85% 20%,
+                    rgba(124, 140, 255, 0.08),
+                    transparent 30%
+                ),
+                var(--bg);
+
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .container {
+            width: min(92%, var(--max-width));
+            margin: auto;
+        }
+
+        section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            margin-bottom: 55px;
+        }
+
+        .section-label {
+            display: inline-block;
+            color: var(--primary);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            line-height: 1.15;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+        }
+
+        .section-description {
+            color: var(--text-soft);
+            max-width: 650px;
+            font-size: 1rem;
+        }
+
+
+        /* =========================================
+           NAVIGATION
+        ========================================= */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+
+            background: rgba(7, 11, 18, 0.78);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .nav {
+            height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-soft);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-button {
+            padding: 10px 18px;
+            border: 1px solid rgba(102,227,180,0.4);
+            border-radius: 50px;
+            color: var(--primary) !important;
+        }
+
+        .nav-button:hover {
+            background: var(--primary);
+            color: #06100c !important;
+        }
+
+
+        /* =========================================
+           HERO
+        ========================================= */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 130px;
+            position: relative;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            padding: 8px 13px;
+            border-radius: 50px;
+
+            background: rgba(102,227,180,0.08);
+            border: 1px solid rgba(102,227,180,0.15);
+
+            color: var(--primary);
+            font-size: 0.8rem;
+            font-weight: 600;
+
+            margin-bottom: 25px;
+        }
+
+        .status-dot {
+            width: 7px;
+            height: 7px;
+            background: var(--primary);
+            border-radius: 50%;
+            box-shadow: 0 0 12px var(--primary);
+        }
+
+        .hero h1 {
+            font-size: clamp(3.2rem, 7vw, 6.5rem);
+            line-height: 0.98;
+            letter-spacing: -4px;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero-description {
+            color: var(--text-soft);
+            font-size: 1.1rem;
+            max-width: 650px;
+            margin-bottom: 35px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 13px 22px;
+            border-radius: 10px;
+
+            font-size: 0.9rem;
+            font-weight: 700;
+
+            transition: 0.3s ease;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #06100c;
+        }
+
+        .btn-primary:hover {
+            background: #8af0ca;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(102,227,180,0.2);
+        }
+
+        .btn-secondary {
+            border: 1px solid var(--border);
+            background: rgba(255,255,255,0.03);
+            color: var(--text);
+        }
+
+        .btn-secondary:hover {
+            border-color: rgba(102,227,180,0.35);
+            transform: translateY(-3px);
+        }
+
+
+        /* HERO VISUAL */
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+        }
+
+        .data-card {
+            width: 360px;
+            max-width: 100%;
+
+            padding: 25px;
+            border: 1px solid var(--border);
+            border-radius: 25px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.07),
+                    rgba(255,255,255,0.015)
+                );
+
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .data-card::before {
+            content: "";
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: var(--primary);
+            filter: blur(100px);
+            opacity: 0.12;
+            top: -80px;
+            right: -80px;
+        }
+
+        .card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .card-title {
+            font-weight: 700;
+        }
+
+        .card-menu {
+            color: var(--muted);
+        }
+
+        .chart {
+            height: 170px;
+            display: flex;
+            align-items: end;
+            gap: 12px;
+            padding: 15px 5px;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 25px;
+        }
+
+        .bar {
+            flex: 1;
+            border-radius: 7px 7px 2px 2px;
+            background: var(--gradient);
+            opacity: 0.8;
+            transition: 0.3s;
+        }
+
+        .bar:hover {
+            opacity: 1;
+            transform: translateY(-5px);
+        }
+
+        .bar:nth-child(1) { height: 38%; }
+        .bar:nth-child(2) { height: 55%; }
+        .bar:nth-child(3) { height: 48%; }
+        .bar:nth-child(4) { height: 70%; }
+        .bar:nth-child(5) { height: 60%; }
+        .bar:nth-child(6) { height: 82%; }
+        .bar:nth-child(7) { height: 95%; }
+
+        .analytics-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .stat {
+            padding: 15px;
+            background: rgba(255,255,255,0.035);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+        }
+
+        .stat small {
+            color: var(--muted);
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        .stat strong {
+            font-size: 1.25rem;
+        }
+
+
+        /* =========================================
+           ABOUT
+        ========================================= */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .about-card {
+            min-height: 350px;
+            border-radius: 25px;
+            border: 1px solid var(--border);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(102,227,180,0.07),
+                    rgba(124,140,255,0.03)
+                );
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-initials {
+            font-size: 7rem;
+            font-weight: 900;
+            letter-spacing: -10px;
+
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .about-content p {
+            color: var(--text-soft);
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+
+        .about-highlights {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .highlight {
+            padding: 18px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+        }
+
+        .highlight strong {
+            display: block;
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 3px;
+        }
+
+        .highlight span {
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+
+
+        /* =========================================
+           SKILLS
+        ========================================= */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+        }
+
+        .skill {
+            margin-bottom: 25px;
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 9px;
+        }
+
+        .skill-name {
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .skill-percent {
+            color: var(--primary);
+            font-size: 0.8rem;
+        }
+
+        .skill-track {
+            height: 6px;
+            background: rgba(255,255,255,0.07);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .skill-fill {
+            height: 100%;
+            background: var(--gradient);
+            border-radius: 20px;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            padding: 11px 15px;
+            border: 1px solid var(--border);
+            border-radius: 9px;
+            background: rgba(255,255,255,0.025);
+            color: var(--text-soft);
+            font-size: 0.85rem;
+            transition: 0.3s;
+        }
+
+        .skill-tag:hover {
+            color: var(--primary);
+            border-color: rgba(102,227,180,0.35);
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================================
+           PROJECTS
+        ========================================= */
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .project-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: 0.35s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(102,227,180,0.25);
+            box-shadow: var(--shadow);
+        }
+
+        .project-visual {
+            height: 190px;
+            padding: 20px;
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(102,227,180,0.08),
+                    rgba(124,140,255,0.08)
+                );
+            border-bottom: 1px solid var(--border);
+        }
+
+        .mini-dashboard {
+            height: 100%;
+            border: 1px solid rgba(255,255,255,0.08);
+            background: rgba(7,11,18,0.75);
+            border-radius: 10px;
+            padding: 12px;
+        }
+
+        .mini-title {
+            height: 7px;
+            width: 35%;
+            background: var(--primary);
+            border-radius: 10px;
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+
+        .mini-kpis {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 6px;
+            margin-bottom: 12px;
+        }
+
+        .mini-kpi {
+            height: 25px;
+            border-radius: 5px;
+            background: rgba(255,255,255,0.08);
+        }
+
+        .mini-chart {
+            height: 70px;
+            display: flex;
+            align-items: end;
+            gap: 5px;
+        }
+
+        .mini-chart span {
+            flex: 1;
+            background: var(--gradient);
+            border-radius: 3px 3px 0 0;
+        }
+
+        .mini-chart span:nth-child(1) { height: 30%; }
+        .mini-chart span:nth-child(2) { height: 55%; }
+        .mini-chart span:nth-child(3) { height: 40%; }
+        .mini-chart span:nth-child(4) { height: 75%; }
+        .mini-chart span:nth-child(5) { height: 60%; }
+        .mini-chart span:nth-child(6) { height: 90%; }
+
+        .project-content {
+            padding: 22px;
+        }
+
+        .project-content h3 {
+            margin-bottom: 9px;
+            font-size: 1.15rem;
+        }
+
+        .project-content p {
+            color: var(--text-soft);
+            font-size: 0.88rem;
+            margin-bottom: 18px;
+        }
+
+        .project-tools {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+        }
+
+        .project-tools span {
+            font-size: 0.72rem;
+            padding: 5px 9px;
+            background: rgba(102,227,180,0.07);
+            color: var(--primary);
+            border-radius: 5px;
+        }
+
+
+        /* =========================================
+           CERTIFICATES
+        ========================================= */
+
+        .certificates {
+            background:
+                linear-gradient(
+                    180deg,
+                    transparent,
+                    rgba(255,255,255,0.015),
+                    transparent
+                );
+        }
+
+        .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .certificate-card {
+            padding: 25px;
+            border: 1px solid var(--border);
+            background: rgba(255,255,255,0.025);
+            border-radius: var(--radius);
+            transition: 0.3s ease;
+        }
+
+        .certificate-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(102,227,180,0.3);
+        }
+
+        .certificate-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: rgba(102,227,180,0.1);
+            color: var(--primary);
+
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .certificate-card h3 {
+            font-size: 1rem;
+            margin-bottom: 6px;
+        }
+
+        .certificate-card p {
+            color: var(--text-soft);
+            font-size: 0.82rem;
+            margin-bottom: 15px;
+        }
+
+        .certificate-date {
+            color: var(--muted);
+            font-size: 0.75rem;
+        }
+
+
+        /* =========================================
+           CONTACT
+        ========================================= */
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 50px;
+            padding: 45px;
+
+            border: 1px solid var(--border);
+            border-radius: 25px;
+
+            background:
+                radial-gradient(
+                    circle at 90% 10%,
+                    rgba(102,227,180,0.08),
+                    transparent 35%
+                ),
+                rgba(255,255,255,0.02);
+        }
+
+        .contact-intro p {
+            color: var(--text-soft);
+            margin-bottom: 30px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 17px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            color: var(--text-soft);
+            font-size: 0.9rem;
+        }
+
+        .contact-icon {
+            width: 38px;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 9px;
+            background: rgba(102,227,180,0.08);
+            color: var(--primary);
+        }
+
+        .contact-form {
+            display: grid;
+            gap: 14px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 14px 15px;
+
+            background: rgba(255,255,255,0.035);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+
+            color: var(--text);
+            font-family: inherit;
+            font-size: 0.88rem;
+
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: rgba(102,227,180,0.5);
+            background: rgba(255,255,255,0.05);
+        }
+
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: #626d7e;
+        }
+
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 30px 0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .footer-content p {
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            color: var(--muted);
+            font-size: 0.82rem;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--primary);
+        }
+
+
+        /* =========================================
+           RESPONSIVE DESIGN
+        ========================================= */
+
+        @media (max-width: 900px) {
+
+            .hero-grid,
+            .about-grid,
+            .skills-grid,
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding-top: 120px;
+            }
+
+            .hero-visual {
+                justify-content: flex-start;
+            }
+
+            .projects-grid,
+            .certificates-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-card {
+                min-height: 280px;
+            }
+        }
+
+
+        @media (max-width: 680px) {
+
+            section {
+                padding: 75px 0;
+            }
+
+            .nav {
+                height: 65px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 3.4rem;
+                letter-spacing: -2px;
+            }
+
+            .hero-description {
+                font-size: 1rem;
+            }
+
+            .data-card {
+                width: 100%;
+            }
+
+            .projects-grid,
+            .certificates-grid,
+            .about-highlights {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-wrapper {
+                padding: 25px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .about-initials {
+                font-size: 5rem;
+            }
+        }
+
+
+        /* =========================================
+           ACCESSIBILITY
+        ========================================= */
+
+        :focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 4px;
+        }
+
+        ::selection {
+            background: var(--primary);
+            color: #06100c;
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <!-- =========================================
+         NAVIGATION
+    ========================================== -->
+
+    <header>
+        <div class="container nav">
+
+            <a href="#home" class="logo">
+                Princewill<span>.</span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#certificates">Certificates</a></li>
+                <li>
+                    <a href="#contact" class="nav-button">
+                        Contact
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </header>
+
+
+    <main>
+
+        <!-- =========================================
+             HERO
+        ========================================== -->
+
+        <section class="hero" id="home">
+
+            <div class="container hero-grid">
+
+                <div>
+
+                    <div class="hero-tag">
+                        <span class="status-dot"></span>
+                        Data Analyst • Open to Opportunities
+                    </div>
+
+                    <h1>
+                        Turning data into
+                        <span>decisions.</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        I'm <strong>Princewill Ibe</strong>, a Data Analyst
+                        passionate about transforming raw data into clear,
+                        actionable insights that help businesses make
+                        smarter decisions.
+                    </p>
+
+                    <div class="hero-buttons">
+
+                        <a href="#projects" class="btn btn-primary">
+                            View My Work →
+                        </a>
+
+                        <a href="#contact" class="btn btn-secondary">
+                            Let's Connect
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="hero-visual">
+
+                    <div class="data-card">
+
+                        <div class="card-top">
+                            <span class="card-title">
+                                Analytics Overview
+                            </span>
+
+                            <span class="card-menu">
+                                ● ● ●
+                            </span>
+                        </div>
+
+                        <div class="chart">
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                        </div>
+
+                        <div class="analytics-stats">
+
+                            <div class="stat">
+                                <small>Total Revenue</small>
+                                <strong>$84.6K</strong>
+                            </div>
+
+                            <div class="stat">
+                                <small>Growth</small>
+                                <strong>+24.8%</strong>
+                            </div>
+
+                            <div class="stat">
+                                <small>Customers</small>
+                                <strong>2,847</strong>
+                            </div>
+
+                            <div class="stat">
+                                <small>Accuracy</small>
+                                <strong>98.4%</strong>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             ABOUT
+        ========================================== -->
+
+        <section id="about">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <span class="section-label">
+                        About Me
+                    </span>
+
+                    <h2 class="section-title">
+                        Curious about data.<br>
+                        Focused on impact.
+                    </h2>
+
+                </div>
+
+
+                <div class="about-grid">
+
+                    <div class="about-card">
+
+                        <div class="about-initials">
+                            PI
+                        </div>
+
+                    </div>
+
+
+                    <div class="about-content">
+
+                        <p>
+                            I'm Princewill Ibe, a Data Analyst with a
+                            background in Civil Engineering and a growing
+                            passion for using data to solve real-world
+                            business problems.
+                        </p>
+
+                        <p>
+                            I enjoy working with datasets, identifying
+                            patterns, building dashboards, and presenting
+                            insights in a simple and understandable way.
+                        </p>
+
+                        <p>
+                            My approach combines analytical thinking,
+                            attention to detail, and strong organizational
+                            skills to turn complex information into
+                            meaningful insights.
+                        </p>
+
+
+                        <div class="about-highlights">
+
+                            <div class="highlight">
+                                <strong>Data</strong>
+                                <span>Driven mindset</span>
+                            </div>
+
+                            <div class="highlight">
+                                <strong>Insights</strong>
+                                <span>Business focused</span>
+                            </div>
+
+                            <div class="highlight">
+                                <strong>Visuals</strong>
+                                <span>Clear storytelling</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             SKILLS
+        ========================================== -->
+
+        <section id="skills">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <span class="section-label">
+                        Skills
+                    </span>
+
+                    <h2 class="section-title">
+                        Tools I use to<br>
+                        understand data.
+                    </h2>
+
+                    <p class="section-description">
+                        A combination of analytical tools and practical
+                        business skills that help me move from raw data
+                        to useful insights.
+                    </p>
+
+                </div>
+
+
+                <div class="skills-grid">
+
+                    <div>
+
+                        <div class="skill">
+
+                            <div class="skill-header">
+                                <span class="skill-name">
+                                    Microsoft Excel
+                                </span>
+
+                                <span class="skill-percent">
+                                    90%
+                                </span>
+                            </div>
+
+                            <div class="skill-track">
+                                <div class="skill-fill"
+                                    style="width:90%">
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="skill">
+
+                            <div class="skill-header">
+                                <span class="skill-name">
+                                    Data Visualization
+                                </span>
+
+                                <span class="skill-percent">
+                                    88%
+                                </span>
+                            </div>
+
+                            <div class="skill-track">
+                                <div class="skill-fill"
+                                    style="width:88%">
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="skill">
+
+                            <div class="skill-header">
+                                <span class="skill-name">
+                                    Data Cleaning
+                                </span>
+
+                                <span class="skill-percent">
+                                    85%
+                                </span>
+                            </div>
+
+                            <div class="skill-track">
+                                <div class="skill-fill"
+                                    style="width:85%">
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="skill">
+
+                            <div class="skill-header">
+                                <span class="skill-name">
+                                    SQL
+                                </span>
+
+                                <span class="skill-percent">
+                                    75%
+                                </span>
+                            </div>
+
+                            <div class="skill-track">
+                                <div class="skill-fill"
+                                    style="width:75%">
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div>
+
+                        <div class="skill-tags">
+
+                            <span class="skill-tag">
+                                Microsoft Excel
+                            </span>
+
+                            <span class="skill-tag">
+                                SQL
+                            </span>
+
+                            <span class="skill-tag">
+                                Data Cleaning
+                            </span>
+
+                            <span class="skill-tag">
+                                Data Analysis
+                            </span>
+
+                            <span class="skill-tag">
+                                Data Visualization
+                            </span>
+
+                            <span class="skill-tag">
+                                Pivot Tables
+                            </span>
+
+                            <span class="skill-tag">
+                                Excel Dashboards
+                            </span>
+
+                            <span class="skill-tag">
+                                Google Sheets
+                            </span>
+
+                            <span class="skill-tag">
+                                Research
+                            </span>
+
+                            <span class="skill-tag">
+                                Reporting
+                            </span>
+
+                            <span class="skill-tag">
+                                Problem Solving
+                            </span>
+
+                            <span class="skill-tag">
+                                Business Analysis
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             PROJECTS
+        ========================================== -->
+
+        <section id="projects">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <span class="section-label">
+                        Selected Work
+                    </span>
+
+                    <h2 class="section-title">
+                        Projects that turn<br>
+                        numbers into stories.
+                    </h2>
+
+                    <p class="section-description">
+                        A selection of analytical projects demonstrating
+                        data cleaning, visualization, dashboard design,
+                        and business insight generation.
+                    </p>
+
+                </div>
+
+
+                <div class="projects-grid">
+
+
+                    <!-- PROJECT 1 -->
+
+                    <article class="project-card">
+
+                        <div class="project-visual">
+
+                            <div class="mini-dashboard">
+
+                                <div class="mini-title"></div>
+
+                                <div class="mini-kpis">
+                                    <span class="mini-kpi"></span>
+                                    <span class="mini-kpi"></span>
+                                    <span class="mini-kpi"></span>
+                                </div>
+
+                                <div class="mini-chart">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="project-content">
+
+                            <h3>
+                                Sales Performance Dashboard
+                            </h3>
+
+                            <p>
+                                An interactive dashboard analyzing
+                                revenue, products, regions, customers,
+                                and sales performance.
+                            </p>
+
+                            <div class="project-tools">
+
+                                <span>Excel</span>
+                                <span>Pivot Tables</span>
+                                <span>Dashboard</span>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- PROJECT 2 -->
+
+                    <article class="project-card">
+
+                        <div class="project-visual">
+
+                            <div class="mini-dashboard">
+
+                                <div class="mini-title"></div>
+
+                                <div class="mini-kpis">
+                                    <span class="mini-kpi"></span>
+                                    <span class="mini-kpi"></span>
+                                    <span class="mini-kpi"></span>
+                                </div>
+
+                                <div class="mini-chart">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="project-content">
+
+                            <h3>
+                                Social Media Analysis
+                            </h3>
+
+                            <p>
+                                Analysis of social media usage patterns,
+                                demographics, engagement, and platform
+                                preferences.
+                            </p>
+
+                            <div class="project-tools">
+
+                                <span>Excel</span>
+                                <span>Data Cleaning</span>
+                                <span>Visualization</span>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- PROJECT 3 -->
+
+                    <article class="project-card">
+
+                        <div class="project-visual">
+
+                            <div class="mini-dashboard">
+
+                                <div class="mini-title"></div>
+
+                                <div class="mini-kpis">
+                                    <span class="mini-kpi"></span>
+                                    <span class="mini-kpi"></span>
+                                    <span class="mini-kpi"></span>
+                                </div>
+
+                                <div class="mini-chart">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="project-content">
+
+                            <h3>
+                                Fleet & Utilization Analysis
+                            </h3>
+
+                            <p>
+                                A performance dashboard tracking fleet
+                                utilization, delivery performance,
+                                maintenance, fuel, and safety metrics.
+                            </p>
+
+                            <div class="project-tools">
+
+                                <span>Excel</span>
+                                <span>KPI Analysis</span>
+                                <span>Dashboard</span>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             CERTIFICATES
+        ========================================== -->
+
+        <section id="certificates" class="certificates">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <span class="section-label">
+                        Certifications
+                    </span>
+
+                    <h2 class="section-title">
+                        Continuous learning.
+                    </h2>
+
+                    <p class="section-description">
+                        Professional training and certifications that
+                        support my analytical and technology skills.
+                    </p>
+
+                </div>
+
+
+                <div class="certificates-grid">
+
+
+                    <article class="certificate-card">
+
+                        <div class="certificate-icon">
+                            ✓
+                        </div>
+
+                        <h3>
+                            ALX Virtual Assistant Programme
+                        </h3>
+
+                        <p>
+                            Professional training covering administrative
+                            support, research, organization, communication,
+                            and remote work.
+                        </p>
+
+                        <span class="certificate-date">
+                            ALX • Certificate
+                        </span>
+
+                    </article>
+
+
+                    <article class="certificate-card">
+
+                        <div class="certificate-icon">
+                            ✓
+                        </div>
+
+                        <h3>
+                            Data Analysis Certification
+                        </h3>
+
+                        <p>
+                            Add your data analysis certification,
+                            institution, and credential details here.
+                        </p>
+
+                        <span class="certificate-date">
+                            Add Institution • Year
+                        </span>
+
+                    </article>
+
+
+                    <article class="certificate-card">
+
+                        <div class="certificate-icon">
+                            ✓
+                        </div>
+
+                        <h3>
+                            Microsoft Excel Certification
+                        </h3>
+
+                        <p>
+                            Add your Excel certification, training
+                            provider, and credential details here.
+                        </p>
+
+                        <span class="certificate-date">
+                            Add Institution • Year
+                        </span>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             CONTACT
+        ========================================== -->
+
+        <section id="contact">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <span class="section-label">
+                        Contact
+                    </span>
+
+                    <h2 class="section-title">
+                        Let's work with<br>
+                        your data.
+                    </h2>
+
+                </div>
+
+
+                <div class="contact-wrapper">
+
+
+                    <div class="contact-intro">
+
+                        <p>
+                            Whether you have a data project, a business
+                            problem, or simply want to connect, I'd love
+                            to hear from you.
+                        </p>
+
+
+                        <div class="contact-info">
+
+                            <div class="contact-item">
+
+                                <span class="contact-icon">
+                                    @
+                                </span>
+
+                                <span>
+                                    your.email@example.com
+                                </span>
+
+                            </div>
+
+
+                            <div class="contact-item">
+
+                                <span class="contact-icon">
+                                    in
+                                </span>
+
+                                <span>
+                                    LinkedIn / Princewill Ibe
+                                </span>
+
+                            </div>
+
+
+                            <div class="contact-item">
+
+                                <span class="contact-icon">
+                                    GH
+                                </span>
+
+                                <span>
+                                    GitHub / PrincewillIbe
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <form
+                        class="contact-form"
+                        action="https://formspree.io/f/YOUR_FORM_ID"
+                        method="POST"
+                    >
+
+                        <div class="form-row">
+
+                            <input
+                                type="text"
+                                name="name"
+                                placeholder="Your name"
+                                required
+                            >
+
+                            <input
+                                type="email"
+                                name="email"
+                                placeholder="Your email"
+                                required
+                            >
+
+                        </div>
+
+
+                        <input
+                            type="text"
+                            name="subject"
+                            placeholder="Subject"
+                            required
+                        >
+
+
+                        <textarea
+                            name="message"
+                            placeholder="Tell me about your project..."
+                            required
+                        ></textarea>
+
+
+                        <button
+                            type="submit"
+                            class="btn btn-primary"
+                        >
+                            Send Message →
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+
+    <footer>
+
+        <div class="container footer-content">
+
+            <p>
+                © 2026 Princewill Ibe. Built with HTML & CSS.
+            </p>
+
+            <div class="social-links">
+
+                <a href="#home">
+                    Back to top ↑
+                </a>
+
+                <a
+                    href="https://www.linkedin.com/in/princewill-ibe-1a0164240"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    LinkedIn
+                </a>
+
+                <a
+                    href="https://github.com/"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    GitHub
+                </a>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+</body>
+</html>
