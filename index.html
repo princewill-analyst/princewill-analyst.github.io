@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +29,7 @@
   --text: #4A5A6A;
   --muted: #87909A;
   --border: rgba(28,43,58,.10);
-  --shadow: 0 12px 38px rgba(28,43,58,.07);
+  --shadow: 0 8px 24px rgba(28,43,58,.06);
   --radius: 18px;
   --max: 1180px;
 }
@@ -43,6 +44,8 @@ body {
   font-family: Inter, "Segoe UI", Arial, sans-serif;
   line-height: 1.7;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body, button, a { -webkit-tap-highlight-color: transparent; }
@@ -67,19 +70,22 @@ button { font: inherit; }
   width: 440px;
   height: 440px;
   border-radius: 50%;
-  filter: blur(78px);
+  filter: none;
   opacity: .12;
+  background: radial-gradient(circle at 45% 45%, currentColor 0%, transparent 70%);
   animation: drift 23s ease-in-out infinite alternate;
 }
 
 .aurora.one {
-  background: var(--orange);
+  color: var(--orange);
+  background: radial-gradient(circle at 45% 45%, var(--orange) 0%, transparent 70%);
   top: -190px;
   left: -170px;
 }
 
 .aurora.two {
-  background: var(--plum);
+  color: var(--plum);
+  background: radial-gradient(circle at 45% 45%, var(--plum) 0%, transparent 70%);
   top: 34%;
   right: -250px;
   animation-delay: -9s;
@@ -105,7 +111,8 @@ button { font: inherit; }
 }
 
 .wrap { width: min(var(--max), calc(100% - 44px)); margin: auto; }
-section { padding: 100px 0; position: relative; }
+section { padding: 100px 0; position: relative; content-visibility: auto; contain-intrinsic-size: auto 760px; }
+#home { content-visibility: visible; contain-intrinsic-size: auto; }
 
 .eyebrow {
   color: var(--orange-2);
@@ -204,8 +211,11 @@ p { margin: 0 0 15px; }
   background: rgba(28,43,58,.96);
   border: 1px solid rgba(255,255,255,.08);
   border-radius: 17px;
-  box-shadow: 0 12px 38px rgba(28,43,58,.18);
+  box-shadow: 0 8px 24px rgba(28,43,58,.10);
   backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  will-change: transform;
+  transform: translate3d(-50%,0,0);
 }
 
 .nav-inner { display: flex; justify-content: space-between; align-items: center; gap: 18px; }
@@ -381,7 +391,7 @@ p { margin: 0 0 15px; }
 
 .project:hover {
   transform: translateY(-8px);
-  box-shadow: 0 24px 52px rgba(28,43,58,.14);
+  box-shadow: 0 8px 24px rgba(28,43,58,.08);
   border-color: rgba(230,122,69,.4);
 }
 
@@ -580,8 +590,8 @@ footer:before {
   height: 350px;
   right: -150px;
   top: -200px;
-  background: var(--plum);
-  filter: blur(90px);
+  background: radial-gradient(circle at 45% 45%, rgba(93,46,70,.55), transparent 70%);
+  filter: none;
   opacity: .6;
 }
 footer h2 { color: white; max-width: 650px; }
@@ -1251,7 +1261,13 @@ footer p { color: rgba(255,255,255,.68); max-width: 500px; }
   }
 
   if (!reducedMotion) {
-    window.addEventListener("scroll", updateTimeline, { passive: true });
+    let timelineTicking = false;
+    const onTimelineScroll = () => {
+      if (timelineTicking) return;
+      timelineTicking = true;
+      requestAnimationFrame(() => { updateTimeline(); timelineTicking = false; });
+    };
+    window.addEventListener("scroll", onTimelineScroll, { passive: true });
     updateTimeline();
   } else {
     progress.style.height = "100%";
